@@ -52,7 +52,7 @@ def main():
         m_name = m_name.title()
 #        check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
         if m_name not in all_titles:
-            return(flask.render_template('negative.html',name=m_name))
+            return(flask.render_template('notFound.html',name=m_name))
         else:
             result_final = get_recommendations(m_name)
             names = []
@@ -69,9 +69,13 @@ if __name__ == '__main__':
 
 '''
 to run the flask app:
+(windows terminal)
+python -m venv venv 
+.\venv\scripts\activate   (windows)
+python -m pip install -r requirements.txt (install requirements)
 
--m venv venv 
-env\scripts\activate   (windows)
--m pip install -r requirements.txt (install requirements)
-python3 app.py (run app)
+(run app)
+set FLASK_APP=app.py
+set FLASK_ENV=development
+flask run
 '''
