@@ -35,9 +35,9 @@ def get_recommendations(title):
     movie_indices = [i[0] for i in sim_scores]
 
     # return list of similar movies
-    return_df = pd.DataFrame(columns=['Title','Date'])
+    return_df = pd.DataFrame(columns=['Title','Homepage'])
     return_df['Title'] = df2['title'].iloc[movie_indices]
-    return_df['Date'] = df2['release_date'].iloc[movie_indices]
+    return_df['Homepage'] = df2['homepage'].iloc[movie_indices]
     return return_df
 
 # Set up the main route
@@ -56,12 +56,16 @@ def main():
         else:
             result_final = get_recommendations(m_name)
             names = []
-            dates = []
+            homepage = []
             for i in range(len(result_final)):
                 names.append(result_final.iloc[i][0])
-                dates.append(result_final.iloc[i][1])
+                if(len(str(result_final.iloc[i][1]))>3):
+                    homepage.append(result_final.iloc[i][1])
+                else:
+                    homepage.append("#")
+                
 
-            return flask.render_template('positive.html',movie_names=names,movie_date=dates,search_name=m_name)
+            return flask.render_template('positive.html',movie_names=names,movie_homepage=homepage,search_name=m_name)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
