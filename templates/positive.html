@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CB Movie Recommender</title>
+  <title>Recommendations for {{ search_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
@@ -131,17 +131,8 @@ figure {
 </head>
 <body>
 
-<div class="hamburger">
-  <div class="hamburger__container">
-    <span class="hamburger__top"></span>
-    <span class="hamburger__middle"></span>
-    <span class="hamburger__bottom"></span>
-  </div>
-</div>
-
     <div class="movie">
-        <h2><u>Recommendations:</u></h2>
-        <p>Showing results for: {{ search_name }}</p>
+        <h2><u>Movie Recommendations for "{{ search_name }}"</u></h2>
         <table class="movie_table" align="center">
             <tr>
                 <th>Movie Title</th>
@@ -150,43 +141,43 @@ figure {
             <tbody class="table_body">
                 <tr>
                     <td><a href={{ movie_homepage[0] }} target="_blank">{{ movie_names[0] }}</a></td>
-                    <td>{{ movie_homepage[0] }}</td>
+                    <td>{{ movie_releaseDate[0] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[1] }} target="_blank">{{ movie_names[1] }}</a></td>
-                    <td>{{ movie_homepage[1] }}</td>
+                    <td>{{ movie_releaseDate[1] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[2] }} target="_blank">{{ movie_names[2] }}</a></td>
-                    <td>{{ movie_homepage[2] }}</td>
+                    <td>{{ movie_releaseDate[2] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[3] }} target="_blank">{{ movie_names[3] }}</a></td>
-                    <td>{{ movie_homepage[3] }}</td>
+                    <td>{{ movie_releaseDate[3] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[4] }} target="_blank">{{ movie_names[4] }}</a></td>
-                    <td>{{ movie_homepage[4] }}</td>
+                    <td>{{ movie_releaseDate[4] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[5] }} target="_blank">{{ movie_names[5] }}</a></td>
-                    <td>{{ movie_homepage[5] }}</td>
+                    <td>{{ movie_releaseDate[5] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[6] }} target="_blank">{{ movie_names[6] }}</a></td>
-                    <td>{{ movie_homepage[6] }}</td>
+                    <td>{{ movie_releaseDate[6] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[7] }} target="_blank">{{ movie_names[7] }}</a></td>
-                    <td>{{ movie_homepage[7] }}</td>
+                    <td>{{ movie_releaseDate[7] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[8] }} target="_blank">{{ movie_names[8] }}</a></td>
-                    <td>{{ movie_homepage[8] }}</td>
+                    <td>{{ movie_releaseDate[8] }}</td>
                 </tr>
                 <tr>
                     <td><a href={{ movie_homepage[9] }} target="_blank">{{ movie_names[9] }}</a></td>
-                    <td>{{ movie_homepage[9] }}</td>
+                    <td>{{ movie_releaseDate[9] }}</td>
                 </tr>
             </tbody>
         </table>
