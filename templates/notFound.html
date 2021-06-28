@@ -8,7 +8,7 @@
     <script type="text/javascript" src="all_titles.js"></script>
 </head>
 <body>
-    <h1>Error, movie not found</h1>
+    <h1>Error, movie "{{ name }}" not found</h1>
     <input type="hidden" value="{{ name }}" id="movie_name" readonly />
     <hr>
     <span id="suggestions"></span>
@@ -21,15 +21,23 @@
             window.history.back();
         }
 
+        //main function to check for similarity
         function checkSimilarity() {
             filtered_names = []
+            
+            //get user input data
             var input = document.getElementById("movie_name").value;
+
+            //compare user input data with all titles
             for (var i = 0; i < all_titles.length; i++) {
                 var recc = all_titles[i];
+                //save to array if similarity >= 0.8
                 if (similarity(input, recc) >= 0.8) {
                     filtered_names.push(recc + '<br />');
                 }
             }
+
+            // code for website ui
             if (filtered_names.length < 1) {
                 document.getElementById("suggestions").innerHTML = "The entered movie name is either misspelled badly or not recorded in database. <br/><br/>";
             } else {
@@ -41,17 +49,29 @@
             }
         }
 
+        //subfunction to check for similarity
         function similarity(input, recc){
+            //find frequency of each letter for the input
             const termfreqInput = termFreqMap(input);
+            //find frequency of each letter for all titles
             const termfreqRecc = termFreqMap(recc);
+
             let dict = {};
+            //add letters to dictionary 
             addLettersToDict(termfreqInput, dict);
+            //add letters to dictionary 
             addLettersToDict(termfreqRecc, dict);
+
+            //vectorise each letter in the input according to dictionary
             const inputVector = vectorizeTermFreqMap(termfreqInput, dict);
+            //vectorise each letter in all titles according to dictionary
             const reccVector = vectorizeTermFreqMap(termfreqRecc, dict);
+
+            //return cosine similarity matrix for the input title and all titles
             return dotProduct(inputVector, reccVector) / (magnitude(inputVector) * magnitude(reccVector));
         }
 
+        //vectorise each letter in given string
         function termFreqMap(str) {
             var words = str.split('');
             var termFreq = {};
@@ -61,12 +81,14 @@
             return termFreq;
         }   
         
+        //add letters to dictionary
         function addLettersToDict(map, dict) {
             for (var key in map) {
                 dict[key] = true;
             }
         }
 
+        //vectorise each letter according to dictionary
         function vectorizeTermFreqMap(map, dict) {
             var termFreqVector = [];
             for (var term in dict) {
@@ -75,6 +97,7 @@
             return termFreqVector;
         }
 
+        //return dot product of two vectors
         function dotProduct(vecA, vecB) {
             var product = 0;
             for (var i = 0; i < vecA.length; i++) {
@@ -83,6 +106,7 @@
             return product;
         }
 
+        //return magnitude of vector
         function magnitude(vec) {
             var sum = 0;
             for (var i = 0; i < vec.length; i++) {
@@ -91,6 +115,7 @@
             return Math.sqrt(sum);
         }
 
+        //call main funciton to check for similarity
         checkSimilarity()
     </script>
 </body>
