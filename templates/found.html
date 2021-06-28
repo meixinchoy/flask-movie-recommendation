@@ -22,7 +22,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 100%;
-    background-color: #ffffff;
+  background-color: #ffffff;
   line-height: 1.5;
   color: #000;
 }
@@ -77,47 +77,22 @@ figure {
   height: auto;
   margin: 0;
 }
-
-.bg-white {
-  background-color: #fff;
-}
-
-.bg-black {
-  background-color: #000;
-}
-
-.absolute-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
     
+.movie{
+    margin-right: 5vh;
+    margin-left: 5vh;
+    display: block;
+    background-color: white;
+    text-align: center;
+}
+button{
+  margin-left: 10vh;
+  margin-top: 3vh;
+}
+@media screen and (max-width:600px) {
     .movie{
-        height: 70vh;
-        margin-top: 15vh;
-        margin-bottom: 15vh;
-        margin-right: 5vh;
-        margin-left: 5vh;
-        display: block;
-        background-color: white;
-        border-radius: 20px;
-        padding: 1em;
-        width: auto;
-        box-shadow: 0px -10px 20px -5px #E2E2E2;
-        text-align: center;
+        padding-top: 12vh;
     }
-
-    @media screen and (max-width:600px) {
-        .movie{
-            margin-top: 12vh;
-            margin-bottom: 12vh;
-        }
 }
     table,tr,td,th{
         border: 1px solid black;
@@ -130,7 +105,7 @@ figure {
 </style>
 </head>
 <body>
-
+    <button onClick={window.history.back()}>Back to Home Page</button>
     <div class="movie">
         <h2><u>Movie Recommendations for "{{ search_name }}"</u></h2>
         <table class="movie_table" align="center">

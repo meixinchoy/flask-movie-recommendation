@@ -68,7 +68,7 @@ def main():
                     homepage.append("#")
                 
 
-            return flask.render_template('positive.html',movie_names=names,movie_homepage=homepage,search_name=m_name, movie_releaseDate=releaseDate)
+            return flask.render_template('found.html',movie_names=names,movie_homepage=homepage,search_name=m_name, movie_releaseDate=releaseDate)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
