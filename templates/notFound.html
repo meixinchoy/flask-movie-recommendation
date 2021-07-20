@@ -73,9 +73,9 @@
 
         //vectorise each letter in given string
         function termFreqMap(str) {
-            var words = str.split('');
+            var chars = str.split('');
             var termFreq = {};
-            words.forEach(function (w) {
+            chars.forEach(function (w) {
                 termFreq[w] = (termFreq[w] || 0) + 1;
             });
             return termFreq;
