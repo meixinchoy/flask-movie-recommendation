@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error-movie not found</title>
-    <script type="text/javascript" src="all_titles.js"></script>
 </head>
 <body>
     <h1>Error, movie "{{ name }}" not found</h1>
@@ -30,12 +29,15 @@
 
             //compare user input data with all titles
             for (var i = 0; i < all_titles.length; i++) {
-                var recc = all_titles[i];
+                let simscore= similarity(input, all_titles[i])
                 //save to array if similarity >= 0.8
-                if (similarity(input, recc) >= 0.8) {
-                    filtered_names.push(recc + '<br />');
+                if (simscore >= 0.8) {
+                    console.log("movie: ", all_titles[i],"  similarity score: ",simscore)
+                    filtered_names.push([all_titles[i] + '<br />', simscore]);
                 }
             }
+            // sort according to similarity scores
+            filtered_names.sort((a,b)=>b[1]-a[1])
 
             // code for website ui
             if (filtered_names.length < 1) {
@@ -43,7 +45,7 @@
             } else {
                 let didyoumean=""
                 for (key in filtered_names) {
-                    didyoumean= didyoumean.concat(filtered_names[key])
+                    didyoumean= didyoumean.concat(filtered_names[key][0])
                 }
                 document.getElementById("suggestions").innerHTML = "<strong>Did you mean: </strong><br/><br/>"+didyoumean+"<br/>";
             }
