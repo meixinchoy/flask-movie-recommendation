@@ -7,15 +7,16 @@ Dataset: TMDB 5000
 ## Setup
 activate environment and install requirements (windows):
 ``python
-python -m venv venv 
-.\venv\scripts\activate
-python -m pip install -r requirements.txt 
+python -m venv venv <br/>
+.\venv\scripts\activate <br/>
+python -m pip install -r requirements.txt <br/>
 ``
+
 run flask app:
 ``python
-set FLASK_APP=app.py
-set FLASK_ENV=development
-flask run
+set FLASK_APP=app.py<br/>
+set FLASK_ENV=development<br/>
+flask run<br/>
 ``
 
 ## Files
