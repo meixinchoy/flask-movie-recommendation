@@ -79,16 +79,3 @@ def main():
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
     #app.run()
-
-'''
-to run the flask app:
-(windows terminal)
-python -m venv venv 
-.\venv\scripts\activate   (windows)
-python -m pip install -r requirements.txt (install requirements)
-
-(run app)
-set FLASK_APP=app.py
-set FLASK_ENV=development
-flask run
-'''
