@@ -32,4 +32,4 @@ TFIDF and Cosine Similarity functions and algorithms were developed to suggest a
 
 ### app.py
 Python Flask app, processes all the routing and app logic when user has entered a valid movie input.
-TFIDF and Cosine Similarity functions from the sklearn package was used to generate movie recommendations.
+TFIDF and Cosine Similarity functions from the scikit-learn package was used to generate movie recommendations.
