@@ -11,9 +11,14 @@ Feature extraction methods such as TF-IDF vectorises the text data and distance 
 
 ### Feature Extraction Method
 The feature extraction method used in this recommender is Term Frequency- Inverse Document Frequency (TF-IDF). TF-IDF works by converting textual information into a Vector Space Model (VSM). In the context of TF-IDF, VSM is an algebraic model that represents text documents as vectors, also known as index terms. The converted vectors can be seen as features extracted from the document. With CB filtering, a multi-dimension vector represents the preference of a user and the items available, in which each item is stored as a vector of its features. The angles between these vectors will be useful later on in calculating the similarity between each item. 
+![image](https://user-images.githubusercontent.com/65379600/129465344-a88017f5-c226-4d5e-b857-7103df056f32.png)
+
 
 ### Distance metric
 The distance metric used in this recommender is Cosine Similarity. Cosine Similarity computes the similarity of items by measuring the cosine of the angle between two vectors projected in a multidimensional vector space. With Cosine Similarity, non-binary vector values are taken into consideration during calculation as the values directly influence the position of the vector. Cosine Similarity focuses on the contents of the items and disregards the size of the items. Hence, Cosine Similarity is suitable for text documents with different word counts. 
+![image](https://user-images.githubusercontent.com/65379600/129465404-790cbc28-ee78-4c2f-85c8-e40f82ac72d6.png)
+![image](https://user-images.githubusercontent.com/65379600/129465372-0d6060f9-89eb-44e7-ae22-3e2ebe96c83c.png)
+
 
 
 ## Code Snippets
@@ -23,8 +28,7 @@ Two of the following snippets of code were developped to demonstrate the use of 
 ### Python Code
 The python code in app.py will generate a list of movie recommendations provided that the user entered a valid movie name. In this set of code, the TF-IDF Vectorizer and Cosine Similarity function is imported from the “scikit-learn” package.
 
-Documentation for TF-IDF vectoriser: [link here](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer) \n
-Documentation for Cosine Similarity: [link here](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity)
+Documentation: [TF-IDF vectoriser](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer) and [Cosine Similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity)
 
 ### Javascript Code
 The javascript code in notfound.html is executed when the user entered an invalid movie name. This set of code will return movie titles that are similar to the input that the user has entered, if applicable. Since this set of code doesn't use any packages, a dictionary was created to store the terms in the text and several functions were created to compute the TF-IDF and Cosine Similarity values.
