@@ -4,6 +4,7 @@ This Content Based Filtering Movie Recommender is built on a flask app using Pyt
 
 Dataset: TMDB 5000
 
+
 ## Content Based Filtering Methods
 
 ### Feature Extraction Method
@@ -12,7 +13,8 @@ The feature extraction method used in this recommender is Term Frequency- Invers
 ### Distance metric
 The distance metric used in this recommender is Cosine Similarity. Cosine Similarity computes the similarity of items by measuring the cosine of the angle between two vectors projected in a multidimensional vector space. With Cosine Similarity, non-binary vector values are taken into consideration during calculation as the values directly influence the position of the vector. Cosine Similarity focuses on the contents of the items and disregards the size of the items. Hence, Cosine Similarity is suitable for text documents with different word counts. 
 
-In short. Feature extraction methods such as TF-IDF vectorises the text data and distance metrics such as Cosine Similarity Computes the similarity between each item by calculating the distance between each vector.
+#### In short. Feature extraction methods such as TF-IDF vectorises the text data and distance metrics such as Cosine Similarity Computes the similarity between each item by calculating the distance between each vector.
+
 
 ## Code Snippets
 
@@ -21,11 +23,11 @@ Two of the following snippets of code were developped to demonstrate the use of 
 ### Python Code
 The python code in app.py will generate a list of movie recommendations provided that the user entered a valid movie name. In this set of code, the TF-IDF Vectorizer and Cosine Similarity function is imported from the “scikit-learn” package.
 
-Documentation for TF-IDF vectoriser: [link here][https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer]
-Documentation for Cosine Similarity: [link here][https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity]
-
+Documentation for TF-IDF vectoriser: [link here](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer)
+Documentation for Cosine Similarity: [link here](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity)
 ### Javascript Code
 The javascript code in notfound.html is executed when the user entered an invalid movie name. This set of code will return movie titles that are similar to the input that the user has entered, if applicable. Since this set of code doesn't use any packages, a dictionary was created to store the terms in the text and several functions were created to compute the TF-IDF and Cosine Similarity values.
+
 
 ## Setup
 activate environment and install requirements (windows):
@@ -41,6 +43,7 @@ set FLASK_APP=app.py
 set FLASK_ENV=development
 flask run
 ```
+
 
 ## Files
 ### index.html
