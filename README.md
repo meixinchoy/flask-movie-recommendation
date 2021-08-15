@@ -14,8 +14,7 @@ The feature extraction method used in this recommender is Term Frequency- Invers
 ![image](https://user-images.githubusercontent.com/65379600/129465678-66d0773d-6faf-4759-8235-bf7d2e96aefa.png) ![image](https://user-images.githubusercontent.com/65379600/129465918-24743bfe-cc19-44aa-80bc-d8f85a75e6a2.png)  
 ### Distance metric
 The distance metric used in this recommender is Cosine Similarity. Cosine Similarity computes the similarity of items by measuring the cosine of the angle between two vectors projected in a multidimensional vector space. With Cosine Similarity, non-binary vector values are taken into consideration during calculation as the values directly influence the position of the vector. Cosine Similarity focuses on the contents of the items and disregards the size of the items. Hence, Cosine Similarity is suitable for text documents with different word counts. 
-![image](https://user-images.githubusercontent.com/65379600/129465404-790cbc28-ee78-4c2f-85c8-e40f82ac72d6.png)   
-![image](https://user-images.githubusercontent.com/65379600/129465856-d995cf37-72d5-4036-9197-c8abd592f43a.png)  
+![image](https://user-images.githubusercontent.com/65379600/129465404-790cbc28-ee78-4c2f-85c8-e40f82ac72d6.png)   ![image](https://user-images.githubusercontent.com/65379600/129466224-5b165535-f7be-4378-a8bb-0438d4e60574.png)
 
 
 ## Code Snippets
