@@ -10,16 +10,15 @@ Dataset: TMDB 5000
 Feature extraction methods such as TF-IDF vectorises the text data and distance metrics such as Cosine Similarity computes the similarity between each item by calculating the distance between each vector.
 
 ### Feature Extraction Method
-The feature extraction method used in this recommender is Term Frequency- Inverse Document Frequency (TF-IDF). TF-IDF works by converting textual information into a Vector Space Model (VSM). In the context of TF-IDF, VSM is an algebraic model that represents text documents as vectors, also known as index terms. The converted vectors can be seen as features extracted from the document. With CB filtering, a multi-dimension vector represents the preference of a user and the items available, in which each item is stored as a vector of its features. The angles between these vectors will be useful later on in calculating the similarity between each item. 
-   
-![image](https://user-images.githubusercontent.com/65379600/129465344-a88017f5-c226-4d5e-b857-7103df056f32.png)   
-
+The feature extraction method used in this recommender is Term Frequency- Inverse Document Frequency (TF-IDF). TF-IDF works by converting textual information into a Vector Space Model (VSM). In the context of TF-IDF, VSM is an algebraic model that represents text documents as vectors, also known as index terms. The converted vectors can be seen as features extracted from the document. With CB filtering, a multi-dimension vector represents the preference of a user and the items available, in which each item is stored as a vector of its features. The angles between these vectors will be useful later on in calculating the similarity between each item.   
+![image](https://user-images.githubusercontent.com/65379600/129465478-fa3a7b75-f705-4182-9dc5-c3c9a6e2646e.png)  
+![image](https://user-images.githubusercontent.com/65379600/129465480-1f6b5977-fc6d-466a-9340-164bda39c820.png)  
+![image](https://user-images.githubusercontent.com/65379600/129465484-cdbbbeb8-699e-4543-b3bc-3b51eed2619d.png)  
 
 ### Distance metric
 The distance metric used in this recommender is Cosine Similarity. Cosine Similarity computes the similarity of items by measuring the cosine of the angle between two vectors projected in a multidimensional vector space. With Cosine Similarity, non-binary vector values are taken into consideration during calculation as the values directly influence the position of the vector. Cosine Similarity focuses on the contents of the items and disregards the size of the items. Hence, Cosine Similarity is suitable for text documents with different word counts. 
 ![image](https://user-images.githubusercontent.com/65379600/129465404-790cbc28-ee78-4c2f-85c8-e40f82ac72d6.png)   
-![image](https://user-images.githubusercontent.com/65379600/129465372-0d6060f9-89eb-44e7-ae22-3e2ebe96c83c.png)  
-
+![image](https://user-images.githubusercontent.com/65379600/129465525-7fcd0bbe-67aa-4c70-ab2f-7bfb4991055c.png)  
 
 
 ## Code Snippets
