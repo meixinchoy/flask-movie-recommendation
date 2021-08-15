@@ -12,6 +12,7 @@ Feature extraction methods such as TF-IDF vectorises the text data and distance 
 ### Feature Extraction Method
 The feature extraction method used in this recommender is Term Frequency- Inverse Document Frequency (TF-IDF). TF-IDF works by converting textual information into a Vector Space Model (VSM). In the context of TF-IDF, VSM is an algebraic model that represents text documents as vectors, also known as index terms. The converted vectors can be seen as features extracted from the document. With CB filtering, a multi-dimension vector represents the preference of a user and the items available, in which each item is stored as a vector of its features. The angles between these vectors will be useful later on in calculating the similarity between each item.   
 ![image](https://user-images.githubusercontent.com/65379600/129465678-66d0773d-6faf-4759-8235-bf7d2e96aefa.png)  
+![image](https://user-images.githubusercontent.com/65379600/129465918-24743bfe-cc19-44aa-80bc-d8f85a75e6a2.png)  
 ![image](https://user-images.githubusercontent.com/65379600/129465752-2119f556-8edf-428f-8b85-3972121e413d.png)
 
 ### Distance metric
