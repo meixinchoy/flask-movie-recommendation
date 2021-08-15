@@ -11,13 +11,14 @@ Feature extraction methods such as TF-IDF vectorises the text data and distance 
 
 ### Feature Extraction Method
 The feature extraction method used in this recommender is Term Frequency- Inverse Document Frequency (TF-IDF). TF-IDF works by converting textual information into a Vector Space Model (VSM). In the context of TF-IDF, VSM is an algebraic model that represents text documents as vectors, also known as index terms. The converted vectors can be seen as features extracted from the document. With CB filtering, a multi-dimension vector represents the preference of a user and the items available, in which each item is stored as a vector of its features. The angles between these vectors will be useful later on in calculating the similarity between each item. 
-![image](https://user-images.githubusercontent.com/65379600/129465344-a88017f5-c226-4d5e-b857-7103df056f32.png)
+   
+![image](https://user-images.githubusercontent.com/65379600/129465344-a88017f5-c226-4d5e-b857-7103df056f32.png)   
 
 
 ### Distance metric
 The distance metric used in this recommender is Cosine Similarity. Cosine Similarity computes the similarity of items by measuring the cosine of the angle between two vectors projected in a multidimensional vector space. With Cosine Similarity, non-binary vector values are taken into consideration during calculation as the values directly influence the position of the vector. Cosine Similarity focuses on the contents of the items and disregards the size of the items. Hence, Cosine Similarity is suitable for text documents with different word counts. 
-![image](https://user-images.githubusercontent.com/65379600/129465404-790cbc28-ee78-4c2f-85c8-e40f82ac72d6.png)
-![image](https://user-images.githubusercontent.com/65379600/129465372-0d6060f9-89eb-44e7-ae22-3e2ebe96c83c.png)
+![image](https://user-images.githubusercontent.com/65379600/129465404-790cbc28-ee78-4c2f-85c8-e40f82ac72d6.png)   
+![image](https://user-images.githubusercontent.com/65379600/129465372-0d6060f9-89eb-44e7-ae22-3e2ebe96c83c.png)  
 
 
 
