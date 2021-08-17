@@ -29,21 +29,6 @@ scikit-learn documentation: [TF-IDF vectoriser](https://scikit-learn.org/stable/
 ### Javascript Code
 The javascript code in notfound.html is executed when the user entered an invalid movie name. This set of code will return movie titles that are similar to the input that the user has entered, if applicable. Since this snippet of code doesn't use any packages, a dictionary was created to store the terms for vectorising purposes and several functions were also created to compute the TF-IDF and Cosine Similarity values.
 
-## Files
-### index.html
-Home page where user can input a movie name to search for similar movie recommendations
-
-### found.html
-Page to display all movie recommendations similar to the input.
-
-### notfound.html
-Error page that shows when the initial movie input is not a valid movie in the dataset.
-TFIDF and Cosine Similarity functions and algorithms were developed to suggest a valid input
-
-### app.py
-Python Flask app, processes all the routing and app logic when user has entered a valid movie input.
-TFIDF and Cosine Similarity functions from the scikit-learn package was used to generate movie recommendations.
-
 
 ## Setup
 activate environment and install requirements (windows):
@@ -59,3 +44,4 @@ set FLASK_APP=app.py
 set FLASK_ENV=development
 flask run
 ```
+
