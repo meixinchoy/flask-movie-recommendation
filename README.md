@@ -22,12 +22,12 @@ The distance metric used in this recommender is Cosine Similarity. Cosine Simila
 Two of the following snippets of code were written to demonstrate the use of TFIDF and Cosine SImilarity in generating recommendations.
 
 ### Python Code
-The python code in app.py will generate a list of movie recommendations provided that the user entered a valid movie name. In this set of code, the TF-IDF Vectorizer and Cosine Similarity function is imported from the “scikit-learn” package.
+The python code in app.py will generate a list of movie recommendations provided that the user entered a valid movie name. When the entered movie name matches with a movie name in the dataset, recommendations will be generated according to the soup column (all details concatenated into one string) of each movie. In this set of code, the TF-IDF Vectorizer and Cosine Similarity function is imported from the “scikit-learn” package.
 
 scikit-learn documentation: [TF-IDF vectoriser](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer) and [Cosine Similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity)
 
 ### Javascript Code
-The javascript code in notfound.html is executed when the user entered an invalid movie name. This set of code will return movie titles that are similar to the input that the user has entered, if applicable. Since this snippet of code doesn't use any packages, a dictionary was created to store the terms for vectorising purposes and several functions were also created to compute the TF-IDF and Cosine Similarity values.
+The javascript code in notfound.html is executed when the user entered an invalid movie name. This set of code will return movie titles that are similar to the input that the user has entered, if applicable. The entered data will be checked against all existing movie names to find the most similar movie names. Since this snippet of code doesn't use any packages, a dictionary was created to store the terms for vectorising purposes and several functions were also created to compute the TF-IDF and Cosine Similarity values.
 
 
 ## Setup
