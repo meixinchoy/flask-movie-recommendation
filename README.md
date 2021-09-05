@@ -1,7 +1,7 @@
 # Movie-recommendation-system
 
 ## About  
-This Content Based Filtering Movie Recommender is built on a [flask app](https://flask.palletsprojects.com/en/2.0.x/) using Python programming language and JavaScript programming language. Two snippets of code were created using the concept of CB. The first one is in Python programming language using the package “scikit-learn” and the second snippet of code is in JavaScript programming language which uses no packages and operates based on logic. Here, feature extraction methods and distamce metrics are utilised to generate recommendations. 
+This Content Based Filtering Movie Recommender is built on a [flask app](https://flask.palletsprojects.com/en/2.0.x/) using Python programming language and JavaScript programming language. Two snippets of code were created using the concept of CB. The first one is in Python programming language using the package “scikit-learn” and the second snippet of code is in JavaScript programming language which uses no packages and operates based on logic. Here, feature extraction methods and distance metrics are utilised to generate recommendations. 
 
 Dataset: TMDB 5000
 
