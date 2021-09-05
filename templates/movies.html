@@ -1,0 +1,18 @@
+<html lang="en">
+
+<head>
+    <title>Movies</title>
+</head>
+
+<body>
+    <div>
+        {% block content %}
+        {% for movie in movies %}
+        <div id="movie" style="background-image: url(http://image.tmdb.org/t/p/w500{{movie.backdrop_path}});">
+        </div>
+        {% endfor %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

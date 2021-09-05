@@ -1,4 +1,7 @@
 import flask
+from flask import render_template
+import urllib.request, json
+import os
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -75,6 +78,26 @@ def main():
                 
 
             return flask.render_template('found.html',movie_names=names,movie_homepage=homepage,search_name=m_name, movie_releaseDate=releaseDate)
+
+@app.route("/movies")
+def get_movies_list():
+    url = "https://api.themoviedb.org/3/discover/movie?api_key={}".format(os.environ.get("TMDB_API_KEY"))
+
+    response = urllib.request.urlopen(url)
+    movies = response.read()
+    dict = json.loads(movies)
+
+    movies = []
+
+    for movie in dict["results"]:
+        movie = {
+            "title": movie["title"],
+            "overview": movie["overview"],
+        }
+        
+        movies.append(movie)
+
+    return {"results": movies}
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
