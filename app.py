@@ -93,6 +93,7 @@ def get_movies_list():
         movie = {
             "title": movie["title"],
             "overview": movie["overview"],
+            # "director":movie["director"]
         }
         
         movies.append(movie)
