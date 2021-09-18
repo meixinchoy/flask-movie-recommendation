@@ -1,5 +1,5 @@
 import flask
-from flask import render_template
+import tmdbsimple as tmdb
 import urllib.request, json
 import os
 import pandas as pd
@@ -81,24 +81,34 @@ def main():
 
 @app.route("/movies")
 def get_movies_list():
-    url = "https://api.themoviedb.org/3/discover/movie?api_key={}".format(os.environ.get("TMDB_API_KEY"))
+    movie = tmdb.Movies(603)
+    response = movie.info()
+    print(response)
+    movie.title
+    movie.budget
+    response = movie.releases()
+    for c in movie.countries:
+        if c['iso_3166_1'] == 'US':
+             print(c['certification'])
+    return {"results": "https://image.tmdb.org/t/p/original"+movie.poster_path}
+    # url = "https://api.themoviedb.org/3/discover/movie?api_key={}".format(os.environ.get("TMDB_API_KEY"))
 
-    response = urllib.request.urlopen(url)
-    movies = response.read()
-    dict = json.loads(movies)
+    # response = urllib.request.urlopen(url)
+    # movies = response.read()
+    # dict = json.loads(movies)
 
-    movies = []
+    # movies = []
 
-    for movie in dict["results"]:
-        movie = {
-            "title": movie["title"],
-            "overview": movie["overview"],
-            # "director":movie["director"]
-        }
+    # for movie in dict["results"]:
+    #     movie = {
+    #         "title": movie["title"],
+    #         "overview": movie["overview"],
+    #         # "director":movie["director"]
+    #     }
         
-        movies.append(movie)
+    #     movies.append(movie)
 
-    return {"results": movies}
+    # return {"results": movies}
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
