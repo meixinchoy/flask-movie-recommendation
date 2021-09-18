@@ -36,19 +36,15 @@ def get_recommendations(title):
     # Get the scores of the 10 most similar movies
     sim_scores = sim_scores[1:11]
     # print similarity scores
-    print("\n movieId      score")
+    print("\n Index      score")
     for i in sim_scores:
         print(i)
 
     # Get the movie indices
     movie_indices = [i[0] for i in sim_scores]
 
-    # return list of similar movies
-    return_df = pd.DataFrame(columns=['Title','Homepage'])
-    return_df['Title'] = df2['title'].iloc[movie_indices]
-    return_df['Homepage'] = df2['homepage'].iloc[movie_indices]
-    return_df['ReleaseDate'] = df2['release_date'].iloc[movie_indices]
-    return return_df
+    # return ids of similar movies
+    return  df2['id'].iloc[movie_indices]
 
 # Set up the main route
 @app.route('/', methods=['GET', 'POST'])
@@ -60,30 +56,22 @@ def main():
     if flask.request.method == 'POST':
         m_name = flask.request.form['movie_name']
         m_name = m_name.title().strip()
-#        check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
+        #  check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
         if m_name not in all_titles:
             return(flask.render_template('notFound.html',name=m_name))
         else:
-            result_final = get_recommendations(m_name)
-            names = []
-            homepage = []
-            releaseDate = []
+            result_final = get_recommendations(m_name).to_numpy()
+            movies =[]
             for i in range(len(result_final)):
-                names.append(result_final.iloc[i][0])
-                releaseDate.append(result_final.iloc[i][2])
-                if(len(str(result_final.iloc[i][1]))>3):
-                    homepage.append(result_final.iloc[i][1])
-                else:
-                    homepage.append("#")
+                movies.append(tmdb.Movies(result_final[i]).info())
                 
-
-            return flask.render_template('found.html',movie_names=names,movie_homepage=homepage,search_name=m_name, movie_releaseDate=releaseDate)
+            return {"movies":movies}
+            # return flask.render_template('found.html',movielist=movies,search_name=m_name)
 
 @app.route("/movies")
 def get_movies_list():
-    movie = tmdb.Movies(603)
+    movie = tmdb.Movies(1891)
     response = movie.info()
-    print(response)
     return {"results": "https://image.tmdb.org/t/p/original"+movie.poster_path}
     # url = "https://api.themoviedb.org/3/discover/movie?api_key={}".format(os.environ.get("TMDB_API_KEY"))
 
