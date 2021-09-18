@@ -84,12 +84,6 @@ def get_movies_list():
     movie = tmdb.Movies(603)
     response = movie.info()
     print(response)
-    movie.title
-    movie.budget
-    response = movie.releases()
-    for c in movie.countries:
-        if c['iso_3166_1'] == 'US':
-             print(c['certification'])
     return {"results": "https://image.tmdb.org/t/p/original"+movie.poster_path}
     # url = "https://api.themoviedb.org/3/discover/movie?api_key={}".format(os.environ.get("TMDB_API_KEY"))
 
