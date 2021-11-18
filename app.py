@@ -24,6 +24,7 @@ indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
 all_titles = [df2['title'][i] for i in range(len(df2['title']))]
 
 def get_recommendations(title):
+    global sim_scores
     # Get the index of the movie that matches the title
     idx = indices[title]
     # Get the pairwise similarity scores of all movies with that movie
@@ -55,7 +56,7 @@ def main():
         return(flask.render_template('index.html'))
             
     if flask.request.method == 'POST':
-        m_name = " ".join(flask.request.form['movie_name'].title().split())
+        m_name = " ".join(flask.request.form['movie_name'].split())
 #        check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
         if m_name not in all_titles:
             return(flask.render_template('notFound.html',name=m_name))
@@ -73,7 +74,7 @@ def main():
                     homepage.append("#")
                 
 
-            return flask.render_template('found.html',movie_names=names,movie_homepage=homepage,search_name=m_name, movie_releaseDate=releaseDate)
+            return flask.render_template('found.html',movie_names=names,movie_homepage=homepage,search_name=m_name, movie_releaseDate=releaseDate, movie_simScore=sim_scores)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
